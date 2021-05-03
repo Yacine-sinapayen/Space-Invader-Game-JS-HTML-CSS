@@ -1,7 +1,23 @@
-// ton code ici
 
-// Lobjectif est de générer un grille de 8cases*8
-//on va compter de 0 à 7 dans un v-bloucle for 
-    // générer 1 div avec la class row
+// The goal is to generate a grid of 8 cells*8
+    //We will count from 0 to 7 in a for instruction
+for (let counter = 0; counter < 8; counter ++) {
+    // Generate a div with the class 'row'
+    var rowElement = document.createElement('div');
+    rowElement.className = 'row';
 
-    //Puis pour générer 1  div avec la class cell
+    // Target the div with 'invader' id
+    var invaderElement = document.getElementById('invader');
+    //insert The 'row' div inside 'invader' div.
+    invaderElement.appendChild(rowElement);
+
+    //count from 0 to 7
+    //Use the same process as above
+    for (var cellCounter = 0; cellCounter < 8; cellCounter ++){
+        var cellElement = document.createElement('div');
+        cellElement.className = 'cell';
+        rowElement.appendChild(cellElement);
+        console.log(cellElement)
+    }
+}
+
