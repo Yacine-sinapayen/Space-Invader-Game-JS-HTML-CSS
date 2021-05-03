@@ -8,10 +8,18 @@
 }
 .row{
     display: flex;
+    justify-content: center;
 }
 .cell{
     width: 20px;
     height: 20px;
-    background-color: orange;
-    border:2px solid orangered;
+    background-color:black;
+    border:2px solid purple;
+}
+
+
+
+.white {
+    background-color: white;
+    border-color: yellow;
 }

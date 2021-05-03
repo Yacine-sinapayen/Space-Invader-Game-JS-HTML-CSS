@@ -1,11 +1,21 @@
  // Handle cell click
 function handleCellClick (event){
-    console.log('je réagis au click', event);
     // Target the object representing the event : cellElement
-    console.log(event);
-    var cell = event.target;
-    console.log(cell);
-    cell.style.backgroundColor = 'black';
+    // console.log('click');
+    // var cellElement = event.target;
+    // classList https://developer.mozilla.org/fr/docs/Web/API/Element/classList
+    // If cell it's  white
+        // if(cellElement.classList.contains('white')){
+    // we remove it
+        //cellElement.classList.remove('white');
+
+     //Otherwise we put it back in white
+        // } else {
+        //     cellElement.classList.add ('white');
+        // }
+
+    // we can do exactly the same thing (above) with only one line of code thanks to the classList.toggle
+    event.target.classList.toggle('white')
 }
 
 // The goal is to generate a grid of 8 cells*8
