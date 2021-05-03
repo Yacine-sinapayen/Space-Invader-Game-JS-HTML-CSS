@@ -14,7 +14,7 @@ function handleCellClick (event){
         //     cellElement.classList.add ('white');
         // }
 
-    // we can do exactly the same thing (above) with only one line of code thanks to the classList.toggle
+    // we can do exactly the same thing (above) with only one line of code thanks to the classList.toggle. Attention ça mache seuelemnt quand il y a deux cas. 
     event.target.classList.toggle('white')
 }
 
