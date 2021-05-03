@@ -1,3 +1,7 @@
+ // Handle cell click
+function handleCellClick (){
+    console.log('je réagis au click');
+}
 
 // The goal is to generate a grid of 8 cells*8
 
@@ -18,20 +22,10 @@ for (let counter = 0; counter < 8; counter ++) {
     for (var cellCounter = 0; cellCounter < 8; cellCounter ++){
         var cellElement = document.createElement('div');
         cellElement.className = 'cell';
+        cellElement.addEventListener('click', handleCellClick);
         rowElement.appendChild(cellElement);
     }
 }
 
-// Goal : react to the clock on the cells
-var cells = document.querySelectorAll('.cell');
 
-console.log(cells);
-
-function handleCellClick(){
-    console.log('je réagis au click');
-}
-
-for (var cellCounter =0; cellCounter < cells.length; cellCounter ++){
-    cells[cellCounter].addEventListener('click', handleCellClick);
-}
 
