@@ -1,6 +1,11 @@
  // Handle cell click
-function handleCellClick (){
-    console.log('je réagis au click');
+function handleCellClick (event){
+    console.log('je réagis au click', event);
+    // Target the object representing the event : cellElement
+    console.log(event);
+    var cell = event.target;
+    console.log(cell);
+    cell.style.backgroundColor = 'black';
 }
 
 // The goal is to generate a grid of 8 cells*8
