@@ -65,8 +65,20 @@ function completeForm() {
     // Créer le bouton : 
     var buttonElem = document.createElement('button');
         // je m'exite pas et je check qu'il se soit bien créer 
-        console.log(buttonElem);
+            // console.log(buttonElem);
         // je le configure 
+        buttonElem.className = 'action';
+            // Pour lui attribuer une class nous aurion pu aussi faire buttonElem.setAttributr('class','action');
+        buttonElem.setAttribute('type', 'submit');
+            // je modifie son texte 
+        buttonElem.textContent='Valider';
+
+            //console.log(buttonElem);
+        // je l'insère dans son parent form
+        formElem.appendChild(buttonElem);
+
+
+
    
 
 }; 
