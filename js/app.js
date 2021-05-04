@@ -18,38 +18,58 @@ function handleCellClick (event){
     event.target.classList.toggle('white')
 }
 
+//step 3 : handle form click
 function handleFormSubmit(event){
     console.log('je réagis au submit');
-    
+
     // Par default la soumission actualise la page, donc pour empécher ce comportement par default on utilise la méthode suivante :
     event.preventDefault();
+
+    //On cible notre champ pour récupérer la valeur
+    var inputElem = document.querySelector('.field');
+        // avec querySelector on peut tout cibler tandis qu'avec getelementby id on ne cible que l'id.
+    console.log(inputElem);
+    //je veux récupérer la valeur à l'intérieur de l'input pour trouver l'info faire un :
+    console.dir(inputElem);
+        // la propriété valueasnumber stock la valeur dans l'input
+    var value = inputElem.valueAsNumber;
+    // effacer la grille actuel avec la méthode inner.html et une chaîne de caractère vide à la soumission
+    invaderElement.innerHTML =''; 
+        console.log(invaderElement)
+    // Vider le champ
+    inputElem.value='';
+    // et générer une new grid en se servant de la valeur du champ
+    generateGrid(value);
 }
 
 // Step 1: The goal is to generate a grid of 8 cells*8
 var invaderElement = document.getElementById('invader');
 
-//We will count from 0 to 7 in a for instruction
-for (let counter = 0; counter < 8; counter ++) {
-
-    // Generate a div with the class 'row'
-    var rowElement = document.createElement('div');
-    rowElement.className = 'row';
-
-    //insert The 'row' div inside 'invader' div.
-    invaderElement.appendChild(rowElement);
-
-    //count from 0 to 7
-    //Use the same process as above
-    for (var cellCounter = 0; cellCounter < 8; cellCounter ++){
-        var cellElement = document.createElement('div');
-        cellElement.className = 'cell';
-        cellElement.addEventListener('click', handleCellClick);
-        rowElement.appendChild(cellElement);
+function generateGrid (gridSize){
+    //We will count from 0 to 7 in a for instruction
+    for (let counter = 0; counter < gridSize; counter ++) {
+    
+        // Generate a div with the class 'row'
+        var rowElement = document.createElement('div');
+        rowElement.className = 'row';
+    
+        //insert The 'row' div inside 'invader' div.
+        invaderElement.appendChild(rowElement);
+    
+        //count from 0 to 7
+        //Use the same process as above
+        for (var cellCounter = 0; cellCounter < gridSize; cellCounter ++){
+            var cellElement = document.createElement('div');
+            cellElement.className = 'cell';
+            cellElement.addEventListener('click', handleCellClick);
+            rowElement.appendChild(cellElement);
+        }
     }
 }
+// la grille de base faitr 8 cases sur 8
+generateGrid(8);
 
-
-// Step 3: create field and button inside formk
+// Step 3: create field and button inside form
 function completeForm() {
     // créer un champ :
         //créer un input 
