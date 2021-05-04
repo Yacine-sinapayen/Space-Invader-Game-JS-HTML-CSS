@@ -1,4 +1,4 @@
- // Handle cell click
+ // Step 2: Handle cell click
 function handleCellClick (event){
     // Target the object representing the event : cellElement
     // console.log('click');
@@ -18,8 +18,7 @@ function handleCellClick (event){
     event.target.classList.toggle('white')
 }
 
-// The goal is to generate a grid of 8 cells*8
-
+// Step 1: The goal is to generate a grid of 8 cells*8
 var invaderElement = document.getElementById('invader');
 
 //We will count from 0 to 7 in a for instruction
@@ -41,6 +40,41 @@ for (let counter = 0; counter < 8; counter ++) {
         rowElement.appendChild(cellElement);
     }
 }
+
+
+// Step 3: create field and button inside formk
+function completeForm() {
+    // créer un champ :
+        //créer un input 
+    var inputElem = document.createElement('input')
+        // le configurer
+    inputElem.className = 'field';
+    inputElem.setAttribute('type', 'number');
+    inputElem.setAttribute('placeholder','Taille de la grille');
+    // setAttribute https://developer.mozilla.org/fr/docs/Web/API/Element/setAttribute
+
+        // cibler un parent
+    var formElem = document.querySelector('.configuration');
+            // possible de faire des queryselector complexe du type "document.querySelector('body form.configuration:firdt-child)"
+            // console.log(formElem);
+            // console.dir(formElem);
+        
+        // insérer l'input dans le parent
+    formElem.appendChild(inputElem);
+
+    // Créer le bouton : 
+    var buttonElem = document.createElement('button');
+        // je m'exite pas et je check qu'il se soit bien créer 
+        console.log(buttonElem);
+        // je le configure 
+   
+
+}; 
+completeForm();
+//Target the field
+// form configuartion
+//target the form
+//insert in the form
 
 
 
