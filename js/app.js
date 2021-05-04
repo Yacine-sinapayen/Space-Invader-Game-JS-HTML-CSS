@@ -18,7 +18,7 @@ function handleCellClick (event){
     event.target.classList.toggle('white')
 }
 
-//step 3 : handle form click
+//step 3 : handle form click ok
 function handleFormSubmit(event){
     console.log('je réagis au submit');
 
