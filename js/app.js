@@ -18,6 +18,13 @@ function handleCellClick (event){
     event.target.classList.toggle('white')
 }
 
+function handleFormSubmit(event){
+    console.log('je réagis au submit');
+    
+    // Par default la soumission actualise la page, donc pour empécher ce comportement par default on utilise la méthode suivante :
+    event.preventDefault();
+}
+
 // Step 1: The goal is to generate a grid of 8 cells*8
 var invaderElement = document.getElementById('invader');
 
@@ -58,6 +65,9 @@ function completeForm() {
             // possible de faire des queryselector complexe du type "document.querySelector('body form.configuration:firdt-child)"
             // console.log(formElem);
             // console.dir(formElem);
+
+    // on cible notre formulaire afin d'écouter l'événement submit
+    formElem.addEventListener('submit',handleFormSubmit);
         
         // insérer l'input dans le parent
     formElem.appendChild(inputElem);
@@ -76,10 +86,6 @@ function completeForm() {
             //console.log(buttonElem);
         // je l'insère dans son parent form
         formElem.appendChild(buttonElem);
-
-
-
-   
 
 }; 
 completeForm();
