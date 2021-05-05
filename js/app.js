@@ -1,50 +1,26 @@
- // Step 2: Handle cell click
+ //Step 2 : Toggle white class on click
 function handleCellClick (event){
-    // Target the object representing the event : cellElement
-    // console.log('click');
-    // var cellElement = event.target;
-    // classList https://developer.mozilla.org/fr/docs/Web/API/Element/classList
-    // If cell it's  white
-        // if(cellElement.classList.contains('white')){
-    // we remove it
-        //cellElement.classList.remove('white');
-
-     //Otherwise we put it back in white
-        // } else {
-        //     cellElement.classList.add ('white');
-        // }
-
-    // we can do exactly the same thing (above) with only one line of code thanks to the classList.toggle. Attention ça mache seuelemnt quand il y a deux cas. 
     event.target.classList.toggle('white')
 }
 
-//step 3 : handle form click ok
+// Step 4.a : Generate new grid on submit
 function handleFormSubmit(event){
     console.log('je réagis au submit');
 
-    // Par default la soumission actualise la page, donc pour empécher ce comportement par default on utilise la méthode suivante :
     event.preventDefault();
 
-    //On cible notre champ pour récupérer la valeur
     var inputElem = document.querySelector('.field');
-        // avec querySelector on peut tout cibler tandis qu'avec getelementby id on ne cible que l'id.
     console.log(inputElem);
-    //je veux récupérer la valeur à l'intérieur de l'input pour trouver l'info faire un :
     console.dir(inputElem);
-        // la propriété valueasnumber stock la valeur dans l'input
     var value = inputElem.valueAsNumber;
-    // effacer la grille actuel avec la méthode inner.html et une chaîne de caractère vide à la soumission
     invaderElement.innerHTML =''; 
         console.log(invaderElement)
-    // Vider le champ
     inputElem.value='';
-    // et générer une new grid en se servant de la valeur du champ
     generateGrid(value);
 }
 
-// Step 1: The goal is to generate a grid of 8 cells*8
-var invaderElement = document.getElementById('invader');
-
+// Step 4.b : Generate a new grid with the given size
+//Param : number for teh size of grid
 function generateGrid (gridSize){
     //We will count from 0 to 7 in a for instruction
     for (let counter = 0; counter < gridSize; counter ++) {
@@ -66,15 +42,11 @@ function generateGrid (gridSize){
         }
     }
 }
-// la grille de base faitr 8 cases sur 8
-generateGrid(8);
 
-// Step 3: create field and button inside form
+
+// Step 3: Create form with an inupt and button
 function completeForm() {
-    // créer un champ :
-        //créer un input 
     var inputElem = document.createElement('input')
-        // le configurer
     inputElem.className = 'field';
     inputElem.setAttribute('type', 'number');
     inputElem.setAttribute('placeholder','Taille de la grille');
@@ -83,9 +55,6 @@ function completeForm() {
         // cibler un parent
     var formElem = document.querySelector('.configuration');
             // possible de faire des queryselector complexe du type "document.querySelector('body form.configuration:firdt-child)"
-            // console.log(formElem);
-            // console.dir(formElem);
-
     // on cible notre formulaire afin d'écouter l'événement submit
     formElem.addEventListener('submit',handleFormSubmit);
         
@@ -108,11 +77,13 @@ function completeForm() {
         formElem.appendChild(buttonElem);
 
 }; 
+
+
+// Step 1: The goal is to generate a grid of 8 cells*8
+var invaderElement = document.getElementById('invader');
+
+generateGrid(8);
 completeForm();
-//Target the field
-// form configuartion
-//target the form
-//insert in the form
 
 
 
